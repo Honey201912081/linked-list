@@ -1,0 +1,50 @@
+#include<stack>
+#include<cmath>
+struct Node* modifyTheList(struct Node *head)
+{
+    //add code here.
+   stack<int> st;
+    Node* f=head;
+    Node* h=head;
+    
+    int i=1;
+    while(f!=NULL)
+    {
+        st.push(f->data);
+        f=f->next;
+        ++i;
+    }
+    --i;
+    int even;
+    if(i%2==0)
+        even=1;
+    else 
+        even=0;
+        
+    float d=i/2;
+    
+    int r=floor(d);
+    stack<int> st1;
+    while(r>0)
+    {
+        h->data=h->data-st.top();
+        st1.push(st.top());
+        st.pop();
+        h=h->next;
+        --r;
+    }
+    if(even==0)
+        st1.push(st.top());
+        
+    while(!st1.empty())
+    {
+        h->data=st1.top();
+        st1.pop();
+        h=h->next;
+    }
+    while(!st.empty())
+        st.pop();
+    while(!st1.empty())
+        st1.pop();
+    return head;
+}

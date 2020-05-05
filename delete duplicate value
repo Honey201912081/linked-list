@@ -1,0 +1,42 @@
+SinglyLinkedListNode* removeDuplicates(SinglyLinkedListNode* head)
+{
+    if(head==NULL)
+    {
+        return 0;
+    }
+    if(head->next==NULL)
+    {
+        return head;
+    }
+    else{
+        SinglyLinkedListNode* prev=head;
+         SinglyLinkedListNode* H1=head;
+        SinglyLinkedListNode* cur=prev->next;
+        while(cur!=NULL)
+        {
+            if(cur->data==prev->data)
+            {
+                if(cur->next!=NULL)
+                {
+                     prev->next=cur->next;
+                     cur=prev->next;
+                }
+                else{
+                    prev->next=NULL;
+                    //return H1;
+                    break;
+                }
+               
+                
+            }
+            else
+            {
+                prev=cur;   
+                cur=cur->next;
+            }
+        }
+       return H1;
+    }
+    
+
+}

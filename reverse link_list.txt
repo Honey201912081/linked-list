@@ -1,0 +1,42 @@
+Reverse link list:=
+====================================
+
+SinglyLinkedListNode* reverse(SinglyLinkedListNode* head) {
+    SinglyLinkedListNode* p=head;
+    SinglyLinkedListNode* c=head->next;
+    SinglyLinkedListNode* t=NULL;
+    int f=0;
+    if(c->next==NULL)
+    {
+        c->next=p;
+        p->next=NULL;
+        head=c;
+       
+    }
+    else{
+        t=c->next;
+        while(t!=NULL)
+        {
+            c->next=p;
+            if(f==0)
+            {
+                p->next=NULL;
+                f=1;
+            }
+            p=c;
+            c=t;
+            if(t->next!=NULL)
+            {
+                 t=t->next;
+            }
+            else{
+                c->next=p;
+                head=c;
+                break;
+            }
+           
+        }
+        
+    }
+       return head;  
+}

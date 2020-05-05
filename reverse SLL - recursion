@@ -1,0 +1,19 @@
+Node* Head;
+void rev(Node* p)
+{
+    if(p->next==NULL)
+    {
+        Head=p;
+        return;
+    }
+    rev(p->next);
+    Node* q=p->next;
+    q->next=p;
+    p->next=NULL;
+}
+Node* reverseList(Node *head)
+{
+  // Your code here
+  rev(head);
+  return Head;
+}

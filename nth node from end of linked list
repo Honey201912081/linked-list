@@ -1,0 +1,31 @@
+#include<stack>
+int getNthFromLast(Node *head, int n)
+{
+       // Your code here
+       if(head==NULL)
+        return -1;
+       stack<int> st;
+       int c=0;
+       while(head->next!=NULL && head!=NULL)
+       {
+           st.push(head->data);
+           c++;
+           head=head->next;
+       }
+       st.push(head->data);
+       c++;
+       if(c<n)
+        return -1;
+       int t=1;
+       while(t<=n)
+       {
+          if(t==n)
+           {
+               return st.top();
+           } 
+           else{
+               st.pop();
+               ++t;
+           }
+       }
+}

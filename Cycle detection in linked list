@@ -1,0 +1,16 @@
+bool has_cycle(SinglyLinkedListNode* head)
+{
+   vector<SinglyLinkedListNode*> v;
+   while(head!=NULL)
+   {
+       auto it=find(v.begin(),v.end(),head);
+       if(it!=v.end())
+        return 1;
+       v.push_back(head);
+       head=head->next;
+   }
+   return 0;
+   
+        
+}
+

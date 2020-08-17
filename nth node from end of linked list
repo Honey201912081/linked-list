@@ -1,3 +1,25 @@
+
+int getNthFromLast(Node *head, int n)
+{
+       // Your code here
+       Node* x=head;
+       int cnt=0;
+       while(x!=NULL)
+       {
+           x=x->next;
+           cnt++;
+       }
+       if(n>cnt)
+            return -1;
+        int move=cnt-n;
+        for(int i=0;i<move;i++)
+        {
+            head=head->next;
+        }
+        return head->data;
+        
+}
+======================================================solution 2========================
 #include<stack>
 int getNthFromLast(Node *head, int n)
 {
